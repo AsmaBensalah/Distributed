@@ -1,0 +1,11 @@
+#!/bin/bash
+#$ -cwd
+#$ -N OpenMP_Pi
+#$ -pe openmp 4 #number of cores requested to SGE
+#$ -v NPROCS= 4 #setting NPROC variable
+#$ -v SIZE=4000000000 #setting SIZE variable
+#$ -q research.q@aomaster
+#$ -l h_rt=02:00:00
+module load gcc/6.1.0
+export OMP_NUM_THREADS=$NPROCS
+./omppi $SIZE > omppi.$JOB_ID.$SIZE.$NPROCS.out

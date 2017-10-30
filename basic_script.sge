@@ -1,0 +1,11 @@
+#!/bin/bash
+#$ -N basic_job
+#$ -o junk
+#$ -q research.q@aomaster.uab.es
+# print initial date and time (using date command)
+echo "Start at $(date)" # print name of host
+hostname
+# sleep 30 seconds
+sleep 30
+# print final date and time
+echo "End at $(date)"
